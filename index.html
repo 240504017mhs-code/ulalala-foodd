@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katalog Kafe & Wirausaha Mahasiswa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-serif-custom { font-family: 'Playfair Display', serif; }
+  </style>
+</head>
+<body class="bg-stone-50 text-stone-800 antialiased min-h-screen flex flex-col selection:bg-amber-200 selection:text-amber-900">
+
+  <!-- Navbar Header -->
+  <header class="bg-stone-900/95 backdrop-blur-md text-stone-100 sticky top-0 z-20 border-b border-amber-900/30 shadow-md">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <span class="text-2xl">☕</span>
+        <div>
+          <h1 class="text-xl font-bold font-serif-custom tracking-wide text-amber-100">KaryaCafe</h1>
+          <p class="text-[10px] text-amber-200/60 uppercase tracking-widest">Coffee & Student Workshop</p>
+        </div>
+      </div>
+      
+      <div class="flex items-center space-x-4">
+        <!-- Social Media Quick Links -->
+        <div class="hidden sm:flex items-center space-x-3 text-stone-400 text-sm border-r border-stone-800 pr-4">
+          <a href="https://instagram.com/USERNAME_INSTAGRAM" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400 transition" title="Instagram">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://tiktok.com/@USERNAME_TIKTOK" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400 transition" title="TikTok">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.82.56-1.36 1.53-1.36 2.54.02 1.05.61 2.04 1.54 2.53.88.48 1.98.48 2.87.03 1.04-.51 1.73-1.61 1.73-2.77.01-4.73.01-9.46.01-14.19z"/></svg>
+          </a>
+        </div>
+
+        <!-- Cart Trigger -->
+        <button onclick="toggleCart()" class="relative p-2.5 bg-amber-950/80 text-amber-200 rounded-full hover:bg-amber-900 transition border border-amber-800/40">
+          🛒 <span id="cart-count" class="absolute -top-1 -right-1 bg-amber-600 text-stone-100 text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center border-2 border-stone-900">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Banner & Content -->
+  <main class="max-w-6xl mx-auto px-4 py-8 flex-1 w-full">
+    <!-- Hero Banner Kafe -->
+    <div class="relative overflow-hidden rounded-3xl bg-stone-900 text-amber-50 p-8 md:p-12 mb-10 shadow-2xl border border-stone-800">
+      <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#d97706_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      <div class="relative z-10 max-w-2xl">
+        <span class="inline-block px-3.5 py-1 bg-amber-900/60 text-amber-300 border border-amber-700/50 rounded-full text-xs font-semibold tracking-wider uppercase mb-4">Artisan & Craft Specialty</span>
+        <h2 class="text-3xl md:text-5xl font-serif-custom font-bold leading-tight mb-3 text-amber-100">Cita Rasa Hangat Wirausaha Muda.</h2>
+        <p class="text-stone-300 text-sm md:text-base mb-6 leading-relaxed">Nikmati racikan kopi terbaik, kudapan artisan, dan karya kreatif buatan mahasiswa. Dipesan mudah dan terhubung langsung ke WhatsApp kami.</p>
+        
+        <!-- Social Buttons Mobile & Hero -->
+        <div class="flex flex-wrap items-center gap-3">
+          <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 bg-emerald-700 hover:bg-emerald-600 text-white px-4 py-2.5 rounded-xl text-xs font-bold transition shadow-sm">
+            <span>💬 WhatsApp Admin</span>
+          </a>
+          <a href="https://instagram.com/USERNAME_INSTAGRAM" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 bg-stone-800 hover:bg-stone-700 text-stone-200 px-4 py-2.5 rounded-xl text-xs font-medium transition border border-stone-700">
+            <span>📸 Instagram</span>
+          </a>
+          <a href="https://tiktok.com/@USERNAME_TIKTOK" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 bg-stone-800 hover:bg-stone-700 text-stone-200 px-4 py-2.5 rounded-xl text-xs font-medium transition border border-stone-700">
+            <span>🎵 TikTok</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Grid Header -->
+    <div class="flex items-center justify-between mb-6 border-b border-stone-200 pb-4">
+      <div>
+        <h3 class="text-2xl font-serif-custom font-bold text-stone-900">Menu & Katalog Produk</h3>
+        <p class="text-xs text-stone-500 mt-1">Dikirim langsung dari kitchen & workshop kami</p>
+      </div>
+    </div>
+
+    <!-- Loading State -->
+    <div id="product-loading" class="text-center py-20 text-stone-500 bg-white rounded-2xl border border-stone-200/80 shadow-sm">
+      <div class="inline-block animate-spin text-3xl mb-3">☕</div>
+      <p class="font-medium text-stone-600 text-sm">Menyeduh katalog menu dari Google Sheets...</p>
+    </div>
+
+    <!-- Product Grid -->
+    <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 hidden"></div>
+  </main>
+
+  <!-- Footer Website -->
+  <footer class="bg-stone-900 text-stone-400 border-t border-stone-800 py-10 mt-12 text-xs">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="text-center md:text-left">
+        <h4 class="text-amber-100 font-serif-custom text-base font-bold">KaryaCafe</h4>
+        <p class="mt-1 text-stone-500">© 2026 Juhoon Cakep. All rights reserved.</p>
+      </div>
+
+      <!-- Social Media Links Footer -->
+      <div class="flex space-x-6 text-stone-300">
+        <a href="https://www.instagram.com/ninggarumm?obrf=NGpzZTFwNjRtN2J4" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400 transition">Instagram</a>
+        <a href="https://www.tiktok.com/@mulyanaastuti__?_r=1&_t=ZS-9AvrwTyCFfg" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400 transition">TikTok</a>
+        <a href="https://wa.me/6287744812260" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400 transition">WhatsApp</a>
+      </div>
+
+      <p class="font-semibold text-amber-200/80">Powered by wahyuramadhan.com</p>
+    </div>
+  </footer>
+
+  <!-- Modal Drawer Keranjang Belanja -->
+  <div id="cart-modal" class="fixed inset-0 bg-stone-950/60 backdrop-blur-sm z-30 hidden flex justify-end transition-opacity">
+    <div class="bg-stone-50 w-full max-w-md h-full flex flex-col p-6 shadow-2xl overflow-y-auto border-l border-stone-200">
+      <div class="flex justify-between items-center pb-4 border-b border-stone-200">
+        <div>
+          <h4 class="text-lg font-serif-custom font-bold text-stone-900">Pesanan Anda</h4>
+          <p class="text-xs text-stone-500">Periksa barang belanjaan sebelum checkout</p>
+        </div>
+        <button onclick="toggleCart()" class="text-stone-400 hover:text-stone-700 text-2xl font-bold">&times;</button>
+      </div>
+
+      <div id="cart-items" class="flex-1 py-4 space-y-3 overflow-y-auto"></div>
+
+      <div class="border-t border-stone-200 pt-4 space-y-4">
+        <div class="flex justify-between items-center text-lg font-bold text-stone-900">
+          <span>Total Pembayaran:</span>
+          <span id="cart-total" class="text-amber-800 font-serif-custom text-xl">Rp 0</span>
+        </div>
+
+        <form id="checkout-form" onsubmit="handleCheckout(event)" class="space-y-3">
+          <div>
+            <label class="block text-xs font-semibold text-stone-700 mb-1">Nama Lengkap</label>
+            <input type="text" id="cust-name" required class="w-full bg-white border border-stone-300 rounded-xl px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-amber-600 focus:border-amber-600 outline-none transition" placeholder="Contoh: Budi Santoso">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-stone-700 mb-1">Nomor WhatsApp Aktif</label>
+            <input type="tel" id="cust-phone" required class="w-full bg-white border border-stone-300 rounded-xl px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-amber-600 focus:border-amber-600 outline-none transition" placeholder="Contoh: 081234567890">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-stone-700 mb-1">Alamat Lengkap / Meja Kafe</label>
+            <textarea id="cust-address" required class="w-full bg-white border border-stone-300 rounded-xl px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-amber-600 focus:border-amber-600 outline-none transition" rows="2" placeholder="Nomor Meja atau Alamat Pengiriman"></textarea>
+          </div>
+          <button type="submit" id="btn-submit" class="w-full bg-amber-800 text-amber-50 font-bold py-3.5 rounded-xl hover:bg-amber-900 transition shadow-md flex items-center justify-center space-x-2">
+            <span>Pesan via WhatsApp 📲</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Logika JavaScript -->
+  <script>
+    // Config Links & Credentials
+    const API_URL = "https://script.google.com/macros/s/AKfycbwE6tiswtXTJdFS_qbtVAlpvucza91ic3XTdGgPX9-XvG9ex5BFRR_IvWjHQJjYFOaShA/exec"; // Masukkan Web App URL Apps Script Anda di sini
+    const WA_ADMIN = "627744812260"; // Format: 628xxxxxxxxxx (awalan 62)
+
+    let products = [];
+    let cart = [];
+
+    async function loadProducts() {
+      try {
+        const res = await fetch(API_URL);
+        const json = await res.json();
+        products = json.data;
+        renderProducts();
+      } catch (err) {
+        document.getElementById("product-loading").innerHTML = "<p class='text-red-700 font-semibold text-sm'>Gagal memuat menu dari database Apps Script.</p>";
+      }
+    }
+
+    function renderProducts() {
+      const grid = document.getElementById("product-grid");
+      grid.innerHTML = "";
+      products.forEach(p => {
+        grid.innerHTML += `
+          <div class="bg-white border border-stone-200/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="relative overflow-hidden h-52 bg-stone-100">
+                <img src="${p.foto || 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=600'}" class="h-full w-full object-cover group-hover:scale-105 transition duration-500" alt="${p.nama}" onerror="this.src='https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=600'">
+                <span class="absolute top-3 left-3 bg-stone-900/80 backdrop-blur-md text-amber-200 text-[10px] font-semibold tracking-wider px-3 py-1 rounded-full uppercase border border-amber-900/40">${p.kategori || 'Specialty'}</span>
+              </div>
+              <div class="p-5">
+                <h4 class="font-serif-custom font-bold text-stone-900 text-lg group-hover:text-amber-800 transition">${p.nama}</h4>
+                <p class="text-xs text-stone-500 mt-2 leading-relaxed line-clamp-2">${p.deskripsi || ''}</p>
+              </div>
+            </div>
+
+            <div class="px-5 pb-5 pt-3 border-t border-stone-100 flex items-center justify-between mt-auto">
+              <div>
+                <span class="text-[10px] text-stone-400 block uppercase tracking-wider">Harga</span>
+                <span class="font-serif-custom font-bold text-amber-900 text-base">Rp ${Number(p.harga || 0).toLocaleString("id-ID")}</span>
+              </div>
+              <button onclick="addToCart(${p.id})" class="bg-stone-900 hover:bg-amber-800 text-amber-100 text-xs font-semibold px-4 py-2.5 rounded-xl transition shadow-sm hover:shadow">
+                + Tambah
+              </button>
+            </div>
+          </div>
+        `;
+      });
+      document.getElementById("product-loading").classList.add("hidden");
+      grid.classList.remove("hidden");
+    }
+
+    function addToCart(id) {
+      const prod = products.find(p => p.id == id);
+      const exist = cart.find(item => item.id == id);
+      if (exist) { exist.qty += 1; } else { cart.push({ ...prod, qty: 1 }); }
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      document.getElementById("cart-count").innerText = cart.reduce((acc, i) => acc + i.qty, 0);
+      const container = document.getElementById("cart-items");
+      container.innerHTML = "";
+      let total = 0;
+      cart.forEach((item, idx) => {
+        total += item.harga * item.qty;
+        container.innerHTML += `
+          <div class="flex justify-between items-center bg-white p-3.5 rounded-xl text-sm border border-stone-200/70 shadow-sm">
+            <div>
+              <p class="font-semibold text-stone-800">${item.nama}</p>
+              <p class="text-xs text-stone-500 mt-0.5">Rp ${Number(item.harga).toLocaleString("id-ID")} × ${item.qty}</p>
+            </div>
+            <button onclick="cart.splice(${idx}, 1); updateCartUI()" class="text-stone-400 hover:text-red-600 text-xs font-semibold transition">Hapus</button>
+          </div>
+        `;
+      });
+      document.getElementById("cart-total").innerText = "Rp " + total.toLocaleString("id-ID");
+    }
+
+    function toggleCart() {
+      document.getElementById("cart-modal").classList.toggle("hidden");
+    }
+
+    async function handleCheckout(e) {
+      e.preventDefault();
+      if (cart.length === 0) return alert("Keranjang belanja Anda masih kosong!");
+
+      const btn = document.getElementById("btn-submit");
+      btn.innerText = "Mencatat Pesanan...";
+      btn.disabled = true;
+
+      const invoiceCode = "CAF-" + Date.now().toString().slice(-6);
+      const payload = {
+        nama: document.getElementById("cust-name").value,
+        whatsapp: document.getElementById("cust-phone").value,
+        alamat: document.getElementById("cust-address").value,
+        items: cart,
+        total: cart.reduce((acc, i) => acc + (i.harga * i.qty), 0)
+      };
+
+      try {
+        // Post data ke Apps Script (Google Sheets)
+        fetch(API_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "text/plain" },
+          body: JSON.stringify(payload)
+        });
+
+        // Format pesan rapi untuk WhatsApp
+        let textWA = `Halo Admin KaryaCafe, saya ingin pesan:\n\n`;
+        textWA += `🧾 *Kode Pesanan: ${invoiceCode}*\n`;
+        textWA += `👤 *Nama:* ${payload.nama}\n`;
+        textWA += `📱 *No. WA:* ${payload.whatsapp}\n`;
+        textWA += `📍 *Lokasi/Meja:* ${payload.alamat}\n\n`;
+        textWA += `☕ *Item Pesanan:* \n`;
+        payload.items.forEach(i => {
+          textWA += `• ${i.nama} (${i.qty}x) = Rp ${(i.harga * i.qty).toLocaleString("id-ID")}\n`;
+        });
+        textWA += `\n💰 *Total Pembayaran: Rp ${payload.total.toLocaleString("id-ID")}*\n\n`;
+        textWA += `Mohon konfirmasi pesanan saya. Terima kasih!`;
+
+        // Buka WhatsApp Admin
+        window.open(`https://wa.me/${WA_ADMIN}?text=${encodeURIComponent(textWA)}`, "_blank");
+
+        // Reset state
+        cart = [];
+        updateCartUI();
+        toggleCart();
+        e.target.reset();
+      } catch (err) {
+        alert("Gagal memproses pesanan. Silakan coba kembali.");
+      } font-bold {
+        btn.innerText = "Pesan via WhatsApp 📲";
+        btn.disabled = false;
+      }
+    }
+
+    loadProducts();
+  </script>
+</body>
+</html>
